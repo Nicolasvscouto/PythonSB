@@ -52,7 +52,9 @@ def enviar_agendamentos_DB():
     data_hora = data_hora_entrada.get()
     if not id_cliente_entrada.get() or not id_servico_entrada.get() or not data_hora_entrada.get():
         messagebox.showwarning("Campos Obrigatórios", "Por favor, preencha todos os campos")
-    #TODO - Adicionar uma forma de verificar se o horário já está reservado (URGENTE)
+    c.execute("SELECT * FROM agendamento WHERE data_hora = %s", (data_hora,))
+    if c.fetchone():
+        messagebox.showerror("Erro", "Horário Ocupado já, tente outro!")
     else:
         add_agendamento(id_cliente, id_servico, data_hora)
         messagebox.showinfo("Parabens", "Voce agendou seu horário")
