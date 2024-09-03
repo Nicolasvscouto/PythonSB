@@ -4,9 +4,9 @@ Arquivo dedicado para as operações que são realizadas (cadastrar usuario e re
 
 import psycopg2
 
-DATABASE = "salao_cabeleireiro"
+DATABASE = "???"
 USER = "postgres"
-PASSWORD = "8455"
+PASSWORD = "????"
 HOST = "localhost"
 PORT = "5432"
 
