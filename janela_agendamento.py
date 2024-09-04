@@ -2,12 +2,8 @@
 Arquivo que é responsavel pela janela de agendamentos de horários
 """
 
-
-
 import customtkinter as ctk
 from tkinter import messagebox
-
-import psycopg2.sql
 from db_operations import *
 
 

@@ -1,8 +1,7 @@
-import customtkinter as ctk
-from tkinter import messagebox
-from db_operations import *
 from janela_client import *
 from janela_agendamento import *
+import customtkinter as ctk
+
 
 janela_principal = ctk.CTk()
 janela_principal.geometry("500x300")
