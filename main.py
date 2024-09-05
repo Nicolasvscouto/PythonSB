@@ -4,7 +4,7 @@ import customtkinter as ctk
 
 
 janela_principal = ctk.CTk()
-janela_principal.geometry("500x300")
+janela_principal.geometry("800x600")
 janela_principal.title("Espaço das Gurias - ADMINISTRAÇÃO")
 
 texto_boasvindas = ctk.CTkLabel(janela_principal, text="Bem-vindo!!", font = ("Arial", 24))

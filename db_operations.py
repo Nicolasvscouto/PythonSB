@@ -22,12 +22,12 @@ def connect_db():
 conn = connect_db()
 c = conn.cursor()
 
-def add_cliente(nome, email, telefone):
+def add_cliente(nome, telefone):
     with connect_db() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
-                "INSERT INTO cliente (nome, email, telefone) VALUES (%s, %s, %s)",
-                (nome, email, telefone)
+                "INSERT INTO cliente (nome, telefone) VALUES (%s, %s)",
+                (nome, telefone)
             )
             conn.commit()
 
@@ -40,9 +40,24 @@ def add_agendamento(id_cliente, id_servico, data_hora):
             )
             conn.commit()
 
-def check_cliente_existente(id_cliente):
+def check_cliente_existente(nome):
     with connect_db() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT 1 FROM cliente WHERE id_cliente = %s", (id_cliente,))
+            cursor.execute("SELECT 1 FROM cliente WHERE nome = %s", (nome,))
             return cursor.fetchone() is not None
 
+
+def get_clientes_BD():
+    with connect_db() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT ID_CLIENTE, NOME FROM CLIENTE")
+            cliente_nomes = cursor.fetchall()
+            return cliente_nomes
+
+
+def get_servico_DB():
+    with connect_db() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT ID_SERVICO, NOME FROM SERVICO")
+            servico_nomes = cursor.fetchall()
+            return servico_nomes

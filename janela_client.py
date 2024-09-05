@@ -5,7 +5,10 @@ from tkinter import messagebox
 def janela_clientela():
     janela_clientela = ctk.CTkToplevel()
     janela_clientela.geometry("500x300")
-    janela_clientela.title("Registrar novos clientes") 
+    janela_clientela.title("Registrar novos clientes")
+
+    janela_clientela.grid_columnconfigure(0, weight=1)
+    janela_clientela.grid_columnconfigure(1, weight=1)
 
     nome_texto = ctk.CTkLabel(janela_clientela, text="Nome") #Indicativo do que a caixa de texto se refere
     nome_texto.grid(row=0, column=0, padx=10, pady=10, sticky="e")
@@ -13,15 +16,6 @@ def janela_clientela():
     global nome_entrada
     nome_entrada = ctk.CTkEntry(janela_clientela) #Caixa de texto para inserir os nomes e enviar pro banco de dados
     nome_entrada.grid(row=0, column=1, padx=10, pady=10, sticky="w")
-
-    
-    email_texto = ctk.CTkLabel(janela_clientela, text="E-mail")
-    email_texto.grid(row=1, column=0, padx=10, pady=10, sticky="e")
-
-    global email_entrada
-    email_entrada = ctk.CTkEntry(janela_clientela)
-    email_entrada.grid(row=1, column=1, padx=10, pady=10, sticky="w")
-    
 
     telefone_texto = ctk.CTkLabel(janela_clientela, text="Telefone")
     telefone_texto.grid(row=2, column=0, padx=10, pady=10, sticky="e")
@@ -36,9 +30,8 @@ def janela_clientela():
 def enviar_clientes_BD():
     nome = nome_entrada.get()
     telefone = telefone_entrada.get()
-    email = email_entrada.get()
     if not nome_entrada.get() or not telefone_entrada.get():
-        messagebox.showwarning("Campos obrigatórios", "Por favor, preencha todos os campos")
+        messagebox.showerror("Campos obrigatórios", "Por favor, preencha todos os campos")
     else:
-        add_cliente(nome,email,telefone)
-        messagebox.showinfo("Parabens", "Você cadastrou um novo usuário")
+        add_cliente(nome,telefone)
+        messagebox.showinfo("Parabens", "Você cadastrou um usuário")
