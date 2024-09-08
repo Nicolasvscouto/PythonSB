@@ -1,7 +1,5 @@
 from db_operations import *
 import customtkinter as ctk
-from tkinter import messagebox
-from customtkinter import CTkFrame
 from janela_agendamento import *
 import datetime
 
