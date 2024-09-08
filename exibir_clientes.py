@@ -1,8 +1,7 @@
 from db_operations import *
 import customtkinter as ctk
-from tkinter import messagebox
-from customtkinter import CTkFrame
 from janela_client import *
+
 def exibir_clientes():
     #JanelaPrincipal
     janela_exibirCliente = ctk.CTk()
