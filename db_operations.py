@@ -4,6 +4,7 @@ Arquivo dedicado para as operações que são realizadas (cadastrar usuario e re
 
 import psycopg2
 
+
 DATABASE = "salao_cabeleireiro"
 USER = "postgres"
 PASSWORD = "8455"
@@ -21,6 +22,7 @@ def connect_db():
 
 conn = connect_db()
 c = conn.cursor()
+
 
 def add_cliente(nome, telefone):
     with connect_db() as conn:
